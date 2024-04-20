@@ -1,8 +1,6 @@
-import React from "react";
-const EmployeeList = ({ employees }) => {
-  const handleDelete = (id) => {
-  };
+import React from 'react';
 
+function EmployeeList({ employees, deleteEmployee }) {
   return (
     <div className="employee-list">
       <table>
@@ -26,7 +24,7 @@ const EmployeeList = ({ employees }) => {
               <td>{employee.available ? 'Yes' : 'No'}</td>
               <td>
                 <button>Edit</button>
-                <button onClick={() => handleDelete(employee.id)}>Delete</button>
+                <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -34,6 +32,6 @@ const EmployeeList = ({ employees }) => {
       </table>
     </div>
   );
-};
+}
 
 export default EmployeeList;
