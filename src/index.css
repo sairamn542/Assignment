@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 10),35px);
+  grid-template-columns: repeat(var(--rows, 10),35px);
+  gap: 2px;
+  user-select: none;
+}
+.box {
+  width: 35px;
+  height: 35px;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selected {
+  background-color: red;
 }
