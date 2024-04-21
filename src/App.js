@@ -7,7 +7,6 @@ const initialEmployees = [
   { id: 2, name: 'Jane Smith', designation: 'Project Manager', age: 35, department: 'Backend Development', available: false },
   // Add more sample data as needed
 ];
-
 function App() {
   const [employees, setEmployees] = useState([]);
   const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
