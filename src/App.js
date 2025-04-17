@@ -1,102 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import EmployeeList from './Components/EmployeeList';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import './App.css';
+// import NavScrollExample from './Components/Navbar';
+// import Cart from './Components/Cart';
+// import Dashboard from './Components/dashboard';
+import { Provider } from 'react-redux';
 
-const initialEmployees = [
-  { id: 1, name: 'John Doe', designation: 'Software Engineer', age: 30, department: 'Frontend Development', available: true },
-  { id: 2, name: 'Jane Smith', designation: 'Project Manager', age: 35, department: 'Backend Development', available: false },
-  // Add more sample data as needed
-];
+// import Parent from "./Redux Comb/Todo22/Parent";
+// import Child from "./Redux Comb/Todo22/child";
+// import strre22 from "./Redux Comb/Redux22/store2";
+
+// import { Provider } from "react-redux";
+import Home from "./Todo/Home";
+import Info from "./Todo/Info";
+import store from "./redux/store";
+import HomeP from './Progressbar/Home';
+import Home3 from './pb2/Home3';
+import Footer from './Footer/Footer';
+import FacebookLatestPost from './Footer/Footer';
+
+
 function App() {
-  const [employees, setEmployees] = useState([]);
-  const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
-  const [newEmployeeData, setNewEmployeeData] = useState({
-    name: '',
-    designation: '',
-    age: '',
-    department: '',
-    available: true, // Assuming new employees are available by default
-  });
-
-  useEffect(() => {
-    // Load employees from local storage on component mount
-    const storedEmployees = JSON.parse(localStorage.getItem('employees'));
-    if (storedEmployees) {
-      setEmployees(storedEmployees);
-    } else {
-      // Initialize with sample data if local storage is empty
-      setEmployees(initialEmployees);
-      localStorage.setItem('employees', JSON.stringify(initialEmployees));
-    }
-  }, []);
-
-  // Function to add a new employee
-  const addEmployee = () => {
-    const newEmployee = { id: employees.length + 1, ...newEmployeeData };
-    const updatedEmployees = [...employees, newEmployee];
-    setEmployees(updatedEmployees);
-    localStorage.setItem('employees', JSON.stringify(updatedEmployees));
-    setShowAddEmployeeModal(false);
-    // Reset the form fields after adding employee
-    setNewEmployeeData({
-      name: '',
-      designation: '',
-      age: '',
-      department: '',
-      available: true,
-    });
-  };
-
-  // Function to delete an employee
-  const deleteEmployee = (id) => {
-    const updatedEmployees = employees.filter(employee => employee.id !== id);
-    setEmployees(updatedEmployees);
-    localStorage.setItem('employees', JSON.stringify(updatedEmployees));
-  };
-
-  return (
-    <div className="app">
-      <div className="dashboard">
-        <div className="dashboard-section">
-          <h2>Overall Statistics</h2>
-          <p>Total Employees: {employees.length}</p>
-          <p>Available Employees: {employees.filter(emp => emp.available).length}</p>
-        </div>
-        <div className="dashboard-section">
-          <h2>Add Employee</h2>
-          <button onClick={() => setShowAddEmployeeModal(true)}>Add Employee</button>
-        </div>
-      </div>
-      <EmployeeList employees={employees} deleteEmployee={deleteEmployee} />
-      {showAddEmployeeModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={() => setShowAddEmployeeModal(false)}>&times;</span>
-            <h2>Add Employee</h2>
-            <form onSubmit={addEmployee}>
-              <label>
-                Name:
-                <input type="text" value={newEmployeeData.name} onChange={(e) => setNewEmployeeData({ ...newEmployeeData, name: e.target.value })} />
-              </label>
-              <label>
-                Designation:
-                <input type="text" value={newEmployeeData.designation} onChange={(e) => setNewEmployeeData({ ...newEmployeeData, designation: e.target.value })} />
-              </label>
-              <label>
-                Age:
-                <input type="number" value={newEmployeeData.age} onChange={(e) => setNewEmployeeData({ ...newEmployeeData, age: e.target.value })} />
-              </label>
-              <label>
-                Department:
-                <input type="text" value={newEmployeeData.department} onChange={(e) => setNewEmployeeData({ ...newEmployeeData, department: e.target.value })} />
-              </label>
-              <button type="submit">Add</button>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return(
+  //  <Provider store={store}>
+  //   <BrowserRouter>
+  //   <NavScrollExample />
+  //   <Routes>
+  //     <Route to='/' element={<Dashboard />} />
+  //     <Route path='/cart' element={<Cart />} />
+  //     <Route path='/dashboard' element={<Dashboard />} />
+  //   </Routes>
+  //  </BrowserRouter>
+  //  </Provider>
+  // <Provider store={store}>
+  //   <Home />
+  //   <Info />
+  // </Provider>
+  // <Provider store={strre22}>
+  //   <Parent />
+  //   <Child />
+  // </Provider>
+  <>
+  <FacebookLatestPost />
+  </>
+  )
 }
 
 export default App;

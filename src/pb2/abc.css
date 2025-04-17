@@ -1,0 +1,14 @@
+.oute {
+    width: 90%;
+    border: 1px solid red;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.abc {
+    margin: 0 30px;
+}
+.inne {
+    background-color: rgb(131, 215, 131);
+    text-align: right;
+    transition: 2s ease-in;
+}
